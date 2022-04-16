@@ -4,18 +4,16 @@ df = pd.read_csv("./country_vaccination_stats.csv")
 
 
 min=df.groupby('country')['daily_vaccinations'].min()
-print(min)
 
-NaN=np.where(df.daily_vaccinations.isnull()) 
-print(NaN)
+NaN=np.where(df['daily_vaccinations'].isnull()) 
 
 for i in NaN:
     df["daily_vaccinations"][i]=min[df['country'][i]] 
 
-NaNForNoValues=np.where(df.daily_vaccinations.isnull())
+NaNForNoValues=np.where(df['daily_vaccinations'].isnull())
 
 if(len(NaNForNoValues)):
     for i in NaNForNoValues:
-        df.daily_vaccinations[i]=0
+        df['daily_vaccinations'][i]=0
 
 print(df)
