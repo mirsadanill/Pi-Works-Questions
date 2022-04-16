@@ -16,4 +16,4 @@ for i in NaN:
 NaNForNoValues=np.where(df.daily_vaccinations.isnull())
 if(len(NaNForNoValues)):
     for y in NaNForNoValues:
-        df.daily_vaccinations[y]=0
+        df.daily_vaccinations[i]=0
