@@ -16,6 +16,8 @@ if(len(NaNForNoValues)):
     for i in NaNForNoValues:
         df['daily_vaccinations'][i]=0
 
+print(df)
+
 country_median = df.groupby('country').median()
 top_3_country = country_median.sort_values('daily_vaccinations', ascending=False).iloc[:3]
 country_names = top_3_country.index
