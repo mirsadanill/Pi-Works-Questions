@@ -3,7 +3,7 @@ import numpy as np
 df = pd.read_csv("./country_vaccination_stats.csv")
 
 
-min=df.groupby('country').min().reset_index().set_index('country')['daily_vaccinations']
+min=df.groupby('country')['daily_vaccinations'].min()
 print(min)
 
 NaN=np.where(df.daily_vaccinations.isnull()) 
